@@ -1,4 +1,5 @@
 #!/bin/sh
+# ログのカウント
 
 awk -F: '{print $(NF-2)}' qdata/8/access.log | awk '{print ($1 < 12 ? "午前" : "午後")}' | sort | uniq -c | awk '$2 $1'
 
